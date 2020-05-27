@@ -5,133 +5,244 @@
 
 
 <head>
-  <title>TMM - 1969 Nissan Skyline 2000 GT-R </title>
-  <?php
-  include('./partials/head.php')
-  ?>
+<title>TMM - Car Model</title>
 
-  <!-- CSS here -->
-  <?php
-  include('./partials/css.php')
-  ?>
+<?php
+  include('./partials/head.php')
+?>
+
+<!-- CSS here -->
+<?php
+    include('./partials/css.php')
+?>
+
+
 </head>
 
 
 <body>
-  <!-- Preloader Start -->
-  <?php
+<!-- Preloader Start -->
+<?php
   include('./partials/preload.php')
-  ?>
-  <!-- Preloader Start -->
+?>
+<!-- Preloader End -->
 
-  <header>
-    <!-- Header Start -->
-    <?php
-    include('./partials/header.php')
-    ?>
-    <!-- Header End -->
-  </header>
+<header>
+<!-- Header Start -->
+<?php
+  include('./partials/header.php')
+?>
+<!-- Header End -->
+</header>
 
-  <!-- slider Area Start-->
-  <div class="slider-area ">
-    <!-- Mobile Menu -->
-    <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="hero-cap text-center">
-              <h2>Product Details</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- slider Area End-->
-
-  <!--================Single Product Area =================-->
-  <div class="product_image_area">
+<!-- slider Area Start-->
+<div class="slider-area ">
+  <!-- Mobile Menu -->
+  <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-12">
-          <div class="product_img_slide owl-carousel">
-            <div class="single_product_img">
-              <img src="assets/img/product/kenmeri1.png" alt="#" class="img-fluid">
-            </div>
-            <div class="single_product_img">
-              <img src="assets/img/product/kenmeri2.png" alt="#" class="img-fluid">
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="single_product_text text-center">
-            <h3>1969 Nissan Skyline 2000 GT-R<br></h3>
-            <p>
-              The first Skyline GT-R was unleashed to the public in February 1969. Based upon a stretched front four-door sedan,
-              the “Hakosuka,” it was powered by the race-derived S20 inline six-cylinder and featured dual overhead camshafts,
-              a cross-flow head with four valves per cylinder, and a hemispherical combustion chamber fed by triple dual-throat Mikuni-Solex
-              sidedraft carburetors. A sportier two-door coupe would then debut the following year. Though the Hakosuka GT-R was built in
-              limited numbers in both coupe and sedan form, it was the final iteration that would be the rarest of them all.
-
-              <br />
-              <br />
-              Model Scale - 1:24
-              <br />
-              Materials - Metal, Plastic
-            </p>
-            <div class="card_area">
-              <div class="product_count_area">
-                <p>Quantity</p>
-                <div class="product_count d-inline-block">
-                  <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
-                  <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
-                  <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
-                </div>
-                <p>$125</p>
-              </div>
-              <div class="add_to_cart">
-                <a href="#" class="btn_3" name="add">Add To Cart</a>
-              </div>
-            </div>
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="hero-cap text-center">
+            <h2>Product Details</h2>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--================End Single Product Area =================-->
+</div>
+<!-- slider Area End-->
+
+<!--================Single Product Area =================-->
+<?php
+  // start session
+  // session_start();
+
+  // include classes
+  include_once "config/database.php";
+  include_once "objects/product.php";
+  include_once "objects/product_image.php";
+
+  // get database connection
+  $database = new Database();
+  $db = $database->getConnection();
+
+  // initialize objects
+  $product = new Product($db);
+  $product_image = new ProductImage($db);
+
+  // get ID of the product to be edited
+  $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
+
+  // set the id as product id property
+  $product->id = $id;
+
+  // to read single record product
+  $product->readOne();
+
+  // set page title
+  $page_title = $product->name;
+
+  // set product id
+  $product_image->product_id=$id;
+
+  // read all related product image
+  $stmt_product_image = $product_image->readByProductId();
+
+  // count all relatd product image
+  $num_product_image = $stmt_product_image->rowCount();
+
+  // echo "<div class='col-md-1'>";
+  //   // if count is more than zero
+  //   if($num_product_image>0){
+  //       // loop through all product images
+  //       while ($row = $stmt_product_image->fetch(PDO::FETCH_ASSOC)){
+  //           // image name and source url
+  //           $product_image_name = $row['name'];
+  //           $source="uploads/images/{$product_image_name}";
+  //           echo "<img src='{$source}' class='product-img-thumb' data-img-id='{$row['id']}' />";
+  //       }
+  //   }else{ echo "No images."; }
+  // echo "</div>";
+
+  // echo "<div class='col-md-12' style='padding: 100px 200px 30px 200px' id='product-img'>";
+    
+    echo "<div class='product_image_area'>";
+      echo "<div class='container'>";
+        echo "<div class='row justify-content-center'>";
+          echo "<div class=col-lg-12>";
+            echo "<div class='product_img_slide owl-carousel'>";
+              // echo "<div class='single_product_img'>";
+
+                // read all related product image
+                $stmt_product_image = $product_image->readByProductId();
+                $num_product_image = $stmt_product_image->rowCount();
+
+                // if count is more than zero
+                if($num_product_image>0){
+                  // loop through all product images
+                  $x=0;
+                  while ($row = $stmt_product_image->fetch(PDO::FETCH_ASSOC)){
+                    // image name and source url
+                    $product_image_name = $row['name'];
+                    $source="uploads/images/{$product_image_name}";
+                    $show_product_img=$x==0 ? "display-block" : "display-none";
+                    echo "<a href='{$source}' target='_blank' id='product-img-{$row['id']}' class='img-fluid {$show_product_img}'>";
+                        echo "<img src='{$source}' style='width:100%;' />";
+                    echo "</a>";
+                    $x++;
+                  }
+                }else{ echo "No images."; }
+              
+              // echo "</div>";
+            echo "</div>";
+          echo "</div>";
+
+  
+
+  // echo "<div class='col-md-5'>";
+
+  // echo "<div class='product-detail'>Price:</div>";
+  // echo "<h4 class='m-b-10px price-description'>&#36;" . number_format($product->price, 2, '.', ',') . "</h4>";
+
+  // echo "<div class='product-detail'>Product description:</div>";
+  // echo "<div class='m-b-10px'>";
+    // make html
+    
+          // include page header HTML
+          include_once 'layout_header.php';
+        
+          echo "<div class='col-lg-8'>";
+            echo "<div single_product_text text-center>";
+
+              echo "<br> <p>";
+
+                $page_description = htmlspecialchars_decode(htmlspecialchars_decode($product->description));
+
+                // show to user
+                echo $page_description;
+              echo "</p>";
+              
+  // echo "</div>";
+
+  // echo "<div class='product-detail'>Product category:</div>";
+  // echo "<div class='m-b-10px'>{$product->category_name}</div>";
+
+  // echo "</div>";
+
+  // echo "<div class='col-md-2'>";
+
+  // if product was already added in the cart
+
+                echo "<div class='card-area'>";
+                  // echo "<div class='product_count_area'>";
+
+                    if(array_key_exists($id, $_SESSION['cart'])){
+                        echo "<div class='m-b-10px text-center'> <br> <h4> This product is already in your cart. </h4>";
+                        echo "<a href='cart.php' class='btn_3'>";
+                            echo "Update Cart";
+                        echo "</a> </div>";
+
+                    }
+
+                    // if product was not added to the cart yet
+                    else{
+
+                    echo "<form class='add-to-cart-form'>";
+                                    // product id
+                                  echo "<div class='card_area'>";
+                                    echo "<div class='product-id' style='display: none;'>$id</div>";  
+                                    
+                                    echo "<div class='product_count_area'> <p> Quantity: </p>";
+                                      echo "<div class='product_count d-inline-block'>";
+                                        echo "<span class='product_count_item inumber-decrement'> <i class='ti-minus'> </i> </span>";
+                                        echo "<input class='product_count_item input-number' type='text' value='1' min='1' max='100'>";
+                                        echo "<span class='product_count_item number-increment'> <i class='ti-plus'> </i> </span>";
+                                      echo "</div>";
+                                      echo "<p>";
+                                      // echo "<div class='product-detail'>Price:</div>";
+                                      echo "<h4>" . number_format($product->price, 2, '.', ',') . "</h4>";
+                                      echo "</p>";
+                                    echo "</div>";
+                                  echo "</div>";
+
+                                    // echo "</div>";
+                                    // echo "<input type='number' value='1' class='product_count_area' min='1' />";
+
+                                    // enable add to cart button
+                                  echo "<div class='add_to_cart text-center'> <br>";
+                                    echo "<button type='submit' class='btn_3'>";
+                                      echo "Add to cart";
+                                    echo "</button>";
+                                  echo "</div>";
+                                echo "</div>";
+                              echo "</div>";
+                            echo "</div>";
+                          echo "</div>";
+                        echo "</div>";
+                      echo "</div>";
+                
+                    echo "</form>";
+}
+// echo "</div>";
 
 
-  <!-- subscribe part here -->
-  <!-- <section class="subscribe_part section_padding">
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-lg-8">
-                  <div class="subscribe_part_content">
-                      <h2>Get promotions & updates!</h2>
-                      <div class="subscribe_form">
-                          <input type="email" placeholder="Enter your mail">
-                          <a href="#" class="btn_1">Subscribe</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section> -->
-  <!-- subscribe part end -->
+// content will be here
 
-  <footer>
-    <?php
-    include('./partials/footer.php')
-    ?>
-  </footer>
+// include page footer HTML
+include_once 'layout_footer.php';
+?>
+  
+ 
+<footer>
+<?php
+  include('./partials/footer.php')
+?>
+</footer>
 
-
-
-
-  <!-- JS here -->
-  <?php
+<!-- JS here -->
+<?php
   include('./partials/js.php')
-  ?>
+?>
 
 </body>
 

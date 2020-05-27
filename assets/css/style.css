@@ -3709,11 +3709,11 @@ input:focus {
 /* line 224, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .header-right .shopping-card::before {
   position: absolute;
-  content: "02";
-  width: 25px;
-  height: 25px;
-  background: #00b1ff;
-  color: #fff;
+  /* content: "02"; */
+  /* width: 25px; */
+  /* height: 25px; */
+  /* background: #00b1ff; */
+  /* color: #fff; */
   line-height: 25px;
   text-align: center;
   border-radius: 30px;
@@ -8413,6 +8413,7 @@ del {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 /* line 53, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_button.scss */
@@ -13023,6 +13024,13 @@ input:focus {
   /* line 10, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_breadcrumb.scss */
   .breadcrumb_part .breadcrumb_iner h2 {
     font-size: 30px;
+    
+  
+  }
+
+  .shopping-card {
+    padding-top: 50px;
+    
   }
 }
 

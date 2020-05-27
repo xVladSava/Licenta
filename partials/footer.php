@@ -7,7 +7,7 @@
                    <div class="single-footer-caption mb-30">
                         <!-- logo -->
                        <div class="footer-logo">
-                           <a href="index.php"><img src="assets/img/logo/logo2.png" alt=""></a>
+                           <a href="index.php"><img src="assets/img/logo/logo22.png" alt=""></a>
                        </div>
                        <div class="footer-tittle">
                            <div class="footer-pera">
@@ -22,9 +22,9 @@
                           <h4>Quick Links</h4>
                           <ul>
                               <li><a href="#">About</a></li>
-                              <!-- <li><a href="#"> Offers & Discounts</a></li> -->
-                              <!-- <li><a href="#"> Get Coupon</a></li> -->
                               <li><a href="#">  Contact Us</a></li>
+                              <li><a href="cart.php"> Shopping Cart</a></li>
+                              <li><a href="product_list.php"> Our Products</a></li>
                           </ul>
                       </div>
                   </div>
