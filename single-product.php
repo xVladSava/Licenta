@@ -151,8 +151,8 @@
           // include page header HTML
           include_once 'layout_header.php';
         
-          echo "<div class='col-lg-8'>";
-            echo "<div single_product_text text-center>";
+          echo "<div class='col-xl-12 text-center'>";
+            echo "<div single_product_text>";
 
               echo "<br> <p>";
 
@@ -161,21 +161,10 @@
                 // show to user
                 echo $page_description;
               echo "</p>";
-              
-  // echo "</div>";
-
-  // echo "<div class='product-detail'>Product category:</div>";
-  // echo "<div class='m-b-10px'>{$product->category_name}</div>";
-
-  // echo "</div>";
-
-  // echo "<div class='col-md-2'>";
-
-  // if product was already added in the cart
-
+ 
+                // if product was already added in the cart
                 echo "<div class='card-area'>";
                   // echo "<div class='product_count_area'>";
-
                     if(array_key_exists($id, $_SESSION['cart'])){
                         echo "<div class='m-b-10px text-center'> <br> <h4> This product is already in your cart. </h4>";
                         echo "<a href='cart.php' class='btn_3'>";
@@ -189,16 +178,16 @@
 
                     echo "<form class='add-to-cart-form'>";
                                     // product id
-                                  echo "<div class='card_area'>";
                                     echo "<div class='product-id' style='display: none;'>$id</div>";  
                                     
+                                  echo "<div class='card_area'>";
                                     echo "<div class='product_count_area'> <p> Quantity: </p>";
                                       echo "<div class='product_count d-inline-block'>";
                                         echo "<span class='product_count_item inumber-decrement'> <i class='ti-minus'> </i> </span>";
-                                        echo "<input class='product_count_item input-number' type='text' value='1' min='1' max='100'>";
+                                        echo "<input class='product_count_item input-number form-control cart-quantity' type='text' value='1' min='1' max='100'>";
                                         echo "<span class='product_count_item number-increment'> <i class='ti-plus'> </i> </span>";
                                       echo "</div>";
-                                      echo "<p>";
+                                      echo "<p>&#36";
                                       // echo "<div class='product-detail'>Price:</div>";
                                       echo "<h4>" . number_format($product->price, 2, '.', ',') . "</h4>";
                                       echo "</p>";
@@ -223,7 +212,7 @@
                 
                     echo "</form>";
 }
-// echo "</div>";
+ echo "</div>";
 
 
 // content will be here

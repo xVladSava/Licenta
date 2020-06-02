@@ -93,14 +93,14 @@
                                 </li>
                                 <li class="d-none d-lg-block"> 
                                    <?php if (!isset($_SESSION["username"])): ?>                                       
-                                        <a href="index.php?logout='0'" class="btn header-btn">Sign in</a>
+                                        <a href="index.php?logout='0'" class="btn_3">Sign in</a>
                                         
                                     <?php endif ?>                                    
                                     </li>
 
                                 <li class="d-none d-lg-block"> 
                                     <?php if (isset($_SESSION["username"])): ?>                                       
-                                        <a href="index.php?logout='1'" class="btn header-btn">Logout</a>
+                                        <a href="index.php?logout='1'" class="btn_3">Logout</a>
                                         
                                     <?php endif ?>
                                 </li>

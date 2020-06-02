@@ -7,7 +7,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     extract($row);
  
     // creating box
-    echo "<div class='col-md-4 m-b-20px'>";
+    echo "<div class='col-xl-4'>";
  
         // product id for javascript access
         echo "<div class='product-id display-none'>{$id}</div>";
@@ -24,11 +24,11 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             }
  
             // product name
-            echo "<div class='product-name m-b-10px'>{$name}</div>";
+            echo "<div class='product-name m-b-10px text-center'>{$name}</div>";
         echo "</a>";
  
         // add to cart button
-        echo "<div class='m-b-10px'>";
+        echo "<div class='m-b-40px text-center'>";
             if(array_key_exists($id, $_SESSION['cart'])){
                 echo "<a href='cart.php' class='btn_3'>";
                     echo "Update Cart";

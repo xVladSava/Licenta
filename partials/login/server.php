@@ -62,7 +62,7 @@
             if (mysqli_num_rows($result) == 1) {
                 //log user in
                 $_SESSION['username'] = $username;
-                $_SESSION['success'] = "You are now logged in!";
+                // $_SESSION['success'] = "You are now logged in!";
                 header('location: ../AutoStore/index.php');
             } else {
                 array_push($errors, "The username / password combination is invalid!");
