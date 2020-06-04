@@ -12,6 +12,7 @@
 <?php 
   include('./partials/css.php')
 ?> 
+<link rel="stylesheet" href="libs/css/custom.css" />
 </head>
 
 <body>
@@ -65,10 +66,10 @@
   // initialize objects
   $product = new Product($db);
   $product_image = new ProductImage($db);
-  
   // set page title
   $page_title="Cart";
   
+  echo "<style='margin-top:150px'>";
   
   // include page header html
   include 'layout_header.php';
@@ -94,7 +95,7 @@
 
   $action = isset($_GET['action']) ? $_GET['action'] : "";
 
-  echo "<div class='col-md-12'>";
+  echo "<div class='col-md-12' style='margin-top: 100px'>";
     if($action=='removed'){
       echo "<div class='alert alert-info'>";
         echo "Product was removed from your cart!";
@@ -130,9 +131,9 @@
       // =================
       
       echo "<div class='cart-row' style='display: flex; width: 100%'>";
-  
 
-      echo "<div class='m-b-10px cart-list-element' style='text-align: center'><h4 style='
+
+      echo "<div class='m-b-10px cart-list-element col-md-4' style='text-align: center'><h4 style='
       position: relative;
       top: 50%;
       transform: translateY(-50%);
@@ -146,17 +147,17 @@
       echo "</div>";
 
         // update quantity
-        echo "<form class='update-quantity-form'>";
+        echo "<form class='update-quantity-form col-md-6'>";
           echo "<div class='product-id' style='display:none;'>{$id}</div>";
           echo "<div class='input-group'>";
               echo "<input type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity cart-list-element' min='1' style='margin-top: 1rem'/>"; 
                   echo "<span class='input-group-btn cart-list-element'>";
-                      echo "<button class='btn_3 btn-default update-quantity' type='submit'>Update</button>";
+                      echo "<button class='btn_3 update-quantity' style='margin:2px' type='submit'>Update</button>";
                   echo "</span>";
                   // delete from cart
-                  echo "<a href='remove_from_cart.php?id={$id}' class='btn_3 cart-list-element'>";
-                    echo "Delete";
-                  echo "</a>";
+                    echo "<a href='remove_from_cart.php?id={$id}' class='btn_3' style='margin:2px'>";
+                      echo "Delete";
+                    echo "</a>";
           echo "</div>";
         echo "</form>";
       echo "</div>";

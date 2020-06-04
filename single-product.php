@@ -1,5 +1,6 @@
 <?php include('./partials/login/server.php'); ?>
 
+
 <!doctype html>
 <html lang="zxx">
 
@@ -15,8 +16,6 @@
 <?php
     include('./partials/css.php')
 ?>
-
-
 </head>
 
 
@@ -35,6 +34,7 @@
 <!-- Header End -->
 </header>
 
+
 <!-- slider Area Start-->
 <div class="slider-area ">
   <!-- Mobile Menu -->
@@ -51,6 +51,7 @@
   </div>
 </div>
 <!-- slider Area End-->
+
 
 <!--================Single Product Area =================-->
 <?php
@@ -146,7 +147,7 @@
 
   // echo "<div class='product-detail'>Product description:</div>";
   // echo "<div class='m-b-10px'>";
-    // make html
+          // make html
     
           // include page header HTML
           include_once 'layout_header.php';
@@ -212,21 +213,24 @@
                 
                     echo "</form>";
 }
- echo "</div>";
+ 
+echo "</div>";
 
 
 // content will be here
 
+
 // include page footer HTML
 include_once 'layout_footer.php';
 ?>
-  
- 
+
+
 <footer>
 <?php
   include('./partials/footer.php')
 ?>
 </footer>
+
 
 <!-- JS here -->
 <?php

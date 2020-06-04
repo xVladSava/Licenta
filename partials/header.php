@@ -59,7 +59,7 @@
 
                                                 <!-- <li><a href="cart.php">Card</a></li> -->
                                                 <!-- <li><a href="elements.html">Element</a></li> -->
-                                                <li><a href="about.php">About</a></li>
+                                                <!-- <li><a href="about.php">About</a></li> -->
                                                 <li><a href="#">Contact Us</a></li>
                                                 <!-- <li><a href="confirmation.html">Confirmation</a></li> -->
                                                 <li><a href="cart.php">Shopping Cart</a></li>
