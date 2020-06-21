@@ -1,21 +1,21 @@
  <!-- Footer Start-->
-<div style="margin-top:100px; margin-bottom:150px">
+<div style="margin-top: 80px;">
     <div class="container">
         <!-- <div class="row"> -->
-            <div class="col-xl-4 col-lg-3 col-md-5 col-sm-6">
+            <!-- <div class="col-xl-4 col-lg-3 col-md-5 col-sm-6"> -->
                 <!-- <div class="single-footer-caption mb-50">
                 <div class="single-footer-caption mb-30"> -->
                     <!-- logo -->
-                    <div class="footer-logo">
+                    <!-- <div class="footer-logo">
                         <a href="index.php"><img src="assets/img/logo/logo22.png" alt=""></a>
-                    </div>
+                    </div> -->
                     <!-- <div class="footer-tittle">
                         <div class="footer-pera">
                         </div>
                     </div> -->
                 <!-- </div>
                 </div> -->
-            </div>
+            <!-- </div> -->
               <!-- <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
                   <div class="single-footer-caption mb-50">
                       <div class="footer-tittle">

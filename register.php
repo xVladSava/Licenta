@@ -54,7 +54,7 @@
                 <div class="login_part_text text-center">
                     <div class="login_part_text_iner">
                         <h2>Already have an account?</h2>
-                        <p>Click the button below to log in!</p>
+                        <p>Click the button below to log in!</p><br>
                         <a href="login.php" class="btn_3">Login</a>
                     </div>
                 </div>

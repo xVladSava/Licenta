@@ -1,6 +1,9 @@
 <div class="header-area">
-            <div class="main-header ">
-                <div class="header-top top-bg d-none d-lg-block">
+            <div class="main-header">
+                <div class="header-top top-bg d-none d-lg-block" style="text-align:right">
+                <?php if (isset($_SESSION["username"])) : ?>
+                    <p style="color:#FFFFFF;display: contents;">You are logged in as: <?php echo $_SESSION['username']; ?>!</p>
+                <?php endif ?>
                    <div class="container-fluid">
                        <div class="col-xl-12">
                             <div class="row d-flex justify-content-between align-items-center">
@@ -16,7 +19,7 @@
                        </div>
                    </div>
                 </div>
-               <div class="header-bottom  header-sticky">
+               <div class="header-bottom">
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <!-- Logo -->
@@ -93,14 +96,14 @@
                                 </li>
                                 <li class="d-none d-lg-block"> 
                                    <?php if (!isset($_SESSION["username"])): ?>                                       
-                                        <a href="index.php?logout='0'" class="btn_3">Sign in</a>
+                                        <a href="index.php?logout='0'" class="btn_3" style="width: max-content; display: flex;">Sign in</a>
                                         
                                     <?php endif ?>                                    
                                     </li>
 
                                 <li class="d-none d-lg-block"> 
                                     <?php if (isset($_SESSION["username"])): ?>                                       
-                                        <a href="index.php?logout='1'" class="btn_3">Logout</a>
+                                        <a href="index.php?logout='1'" class="btn_3" style="width: max-content; display: flex;">Logout</a>
                                         
                                     <?php endif ?>
                                 </li>

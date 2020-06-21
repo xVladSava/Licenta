@@ -24,7 +24,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             }
  
             // product name
-            echo "<div class='product-name m-b-10px text-center'>{$name}</div>";
+            echo "<div class='product-name m-b-10px text-center'>{$name}</div><br>";
         echo "</a>";
  
         // add to cart button

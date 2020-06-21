@@ -53,7 +53,7 @@
                 <div class="login_part_text text-center">
                     <div class="login_part_text_iner">
                         <h2>New to our Shop?</h2>
-                        <p>You can register here, just click the button below!</p>
+                        <p>You can register here, just click the button below!</p><br>
                         <a href="register.php" class="btn_3">Create an Account</a>
                     </div>
                 </div>

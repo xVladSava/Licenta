@@ -31,7 +31,7 @@
 </header>
 
 <!-- slider Area Start-->
-<div class="slider-area ">
+<div class="slider-area" style="margin-top:50px">
   <!-- Mobile Menu -->
   <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
     <div class="container">
@@ -95,7 +95,7 @@
 
   $action = isset($_GET['action']) ? $_GET['action'] : "";
 
-  echo "<div class='col-md-12' style='margin-top: 100px'>";
+  echo "<div class='col-md-12' style='margin-top: 50px'>";
     if($action=='removed'){
       echo "<div class='alert alert-info'>";
         echo "Product was removed from your cart!";
@@ -150,14 +150,14 @@
         echo "<form class='update-quantity-form col-md-6'>";
           echo "<div class='product-id' style='display:none;'>{$id}</div>";
           echo "<div class='input-group'>";
-              echo "<input type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity cart-list-element' min='1' style='margin-top: 1rem'/>"; 
-                  echo "<span class='input-group-btn cart-list-element'>";
+              echo "<input type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity cart-list-element' min='1' style='margin-top: 1rem '/>"; 
+                  echo "<span class='cart-list-element'>";
                       echo "<button class='btn_3 update-quantity' style='margin:2px' type='submit'>Update</button>";
                   echo "</span>";
                   // delete from cart
-                    echo "<a href='remove_from_cart.php?id={$id}' class='btn_3' style='margin:2px'>";
-                      echo "Delete";
-                    echo "</a>";
+                  echo "<a href='remove_from_cart.php?id={$id}' class='btn_3' style='margin:2px'>";
+                    echo "Delete";
+                  echo "</a>";                  
           echo "</div>";
         echo "</form>";
       echo "</div>";
@@ -172,12 +172,14 @@
       $total+=$sub_total;
     }
 
-    echo "<div class='col-md-8'></div>";
-    echo "<div class='col-md-4'>";
+
+    
+    // echo "<div class='col-md-8'></div>";
+    echo "<div class='col-md-12'>";
       echo "<div class='cart-row'>";
         echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
-        echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
-        echo "<a href='checkout.php' class='btn_3'>";
+        echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4> <br>";       
+        echo "<a href='checkout.php' class='btn_3' style='display: flex; width: fit-content;'>";
           echo "<span class='glyphicon glyphicon-shopping-cart'></span> Proceed to Checkout";
         echo "</a>";
       echo "</div>";

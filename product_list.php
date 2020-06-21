@@ -36,7 +36,7 @@
 </header>
     
 <!-- slider Area Start-->
-<div class="slider-area ">
+<div class="slider-area">
     <!-- Mobile Menu -->
     <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
         <div class="container">

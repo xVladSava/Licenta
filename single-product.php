@@ -167,8 +167,8 @@
                 echo "<div class='card-area'>";
                   // echo "<div class='product_count_area'>";
                     if(array_key_exists($id, $_SESSION['cart'])){
-                        echo "<div class='m-b-10px text-center'> <br> <h4> This product is already in your cart. </h4>";
-                        echo "<a href='cart.php' class='btn_3'>";
+                        echo "<div class='m-b-10px text-center'> <br> <h4> This product is already in your cart. </h4><br>";
+                        echo "<a href='cart.php' class='btn_3' style='width: fit-content;'>";
                             echo "Update Cart";
                         echo "</a> </div>";
 
@@ -189,7 +189,6 @@
                                         echo "<span class='product_count_item number-increment'> <i class='ti-plus'> </i> </span>";
                                       echo "</div>";
                                       echo "<p>&#36";
-                                      // echo "<div class='product-detail'>Price:</div>";
                                       echo "<h4>" . number_format($product->price, 2, '.', ',') . "</h4>";
                                       echo "</p>";
                                     echo "</div>";
@@ -200,7 +199,7 @@
 
                                     // enable add to cart button
                                   echo "<div class='add_to_cart text-center'> <br>";
-                                    echo "<button type='submit' class='btn_3'>";
+                                    echo "<button type='submit' class='btn_3' style='width: fit-content;'>";
                                       echo "Add to cart";
                                     echo "</button>";
                                   echo "</div>";
