@@ -4,10 +4,10 @@
     </div>
     <!-- /container -->
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- jQuery  -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   
-<!-- Latest compiled and minified Bootstrap JavaScript -->
+<!-- compiled and minified Bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  
 <script>
@@ -26,8 +26,6 @@ $(document).on('mouseenter', '.product-img-thumb', function(){
     // get basic information for updating the cart
     var id = $(this).find('.product-id').text();
     var quantity = $(this).find('.cart-quantity').val();
-    // alert(id);
-    // alert(quantity);
     
     // redirect to update_quantity.php, with parameter values to process the request
     window.location.href = "update_quantity.php?id=" + id + "&quantity=" + quantity;

@@ -16,8 +16,8 @@ $cart_item=array(
 );
  
 /*
- * check if the 'cart' session array was created
- * if it is NOT, create the 'cart' session array
+ * check if the cart session array was created
+ * if not, create the cart session array
  */
 if(!isset($_SESSION['cart'])){
     $_SESSION['cart'] = array();

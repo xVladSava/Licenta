@@ -7,7 +7,7 @@
 
 
     //database connection
-    $db = mysqli_connect('localhost', 'root', '', 'licenta');
+    $db = mysqli_connect('localhost', 'root', '', 'tmc_store');
 
     //if register is clicked
     if (isset($_POST['register'])) {
@@ -31,13 +31,13 @@
 
         //ensure form field are filled properly
         if (empty($username)) {
-            array_push($errors, "Username is required"); //add error to errors array   
+            array_push($errors, "Username is required");    
         }
         if (empty($email)) {
-            array_push($errors, "Email is required"); //add error to errors array   
+            array_push($errors, "Email is required");   
         }
         if (empty($password_1)) {
-            array_push($errors, "Password is required"); //add error to errors array   
+            array_push($errors, "Password is required");   
         }
 
         if ($password_1 != $password_2) {
@@ -64,10 +64,10 @@
 
         //ensure form field are filled properly
         if (empty($username)) {
-            array_push($errors, "Username is required"); //add error to errors array   
+            array_push($errors, "Username is required"); 
         }
         if (empty($password)) {
-            array_push($errors, "Password is required"); //add error to errors array   
+            array_push($errors, "Password is required"); 
         }
 
         if (count($errors) == 0) {
@@ -90,7 +90,7 @@
 
 
 
-    //Log out
+    //log out
     if (isset($_GET['logout'])) {
         session_destroy();
         unset($_SESSION['username']);
@@ -128,12 +128,46 @@
                 VALUES ('$order', '$id', '$qty', '$price')";
 
             mysqli_query($db, $sql);
+
         }
+
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $pnumber = $_POST['pnumber'];
+        $country = $_POST['country'];
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $zip = $_POST['zip'];
+
+        $sql = "INSERT INTO shipping_details (first_name, last_name, phone_number, shipping_country, shipping_address, shipping_city, zip, order_id)
+        VALUES ('$fname', '$lname', '$pnumber', '$country', '$address', '$city', '$zip', '$order')"; 
+
+        mysqli_query($db, $sql);
 
         header('location: ../AutoStore/place_order.php');
 
     }
 
-  
+
+    //approve order
+    if (isset($_POST['accept-order'])) {
+        $order_id = $_POST['order_id'];
+        $sql = "UPDATE orders SET status='Accepted' WHERE order_id='$order_id'";
+        mysqli_query($db, $sql);
+    }
+
+    //delete order
+    if (isset($_POST['delete-order'])) {
+        $order_id = $_POST['order_id'];
+        $sql = "DELETE FROM orders WHERE order_id='$order_id'";
+        mysqli_query($db, $sql);
+}
+
+    //delete product
+    if (isset($_POST['delete-product'])) {
+        $product_id = $_POST['product_id'];
+        $sql = "DELETE FROM products WHERE id='$product_id'";
+        mysqli_query($db, $sql);
+}
         
 ?>

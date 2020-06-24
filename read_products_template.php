@@ -27,15 +27,33 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             echo "<div class='product-name m-b-10px text-center'>{$name}</div><br>";
         echo "</a>";
  
+        
+    if (isset($_SESSION['username'])) {
+        if ($_SESSION['username'] == 'admin') {
+            echo "
+            <form action='#' method='post'>
+                <input type='hidden' name='product_id' value='$id'>
+                <button type='submit' class='btn btn-lg btn-outline-danger' name='delete-product' >
+                    Delete
+                </button>
+            </form>";
+        }
+    }
+
         // add to cart button
         echo "<div class='m-b-40px text-center'>";
+    if (isset($_SESSION['username'])) {
+        if ($_SESSION['username'] != 'admin') {
             if(array_key_exists($id, $_SESSION['cart'])){
                 echo "<a href='cart.php' class='btn_3'>";
                     echo "Update Cart";
                 echo "</a>";
             }else{
                 echo "<a href='add_to_cart.php?id={$id}&page={$page}' class='btn_3'>Add to Cart</a>";
-            }
+            } 
+        }
+    }
+
         echo "</div>";
  
     echo "</div>";

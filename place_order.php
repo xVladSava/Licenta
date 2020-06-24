@@ -3,7 +3,10 @@
 session_start();
  
 // remove items from the cart
-session_destroy();
+// session_destroy();
+unset($_SESSION['cart']);
+
+
  
 // set page title
 $page_title="Thank You!";
@@ -19,7 +22,7 @@ echo "<div class='col-md-12'>";
     echo "</div>";
  
 echo "</div>";
- 
+header( "refresh:3;url=user_order_list.php" );
 // include page footer HTML
 include_once 'layout_footer.php';
 ?>

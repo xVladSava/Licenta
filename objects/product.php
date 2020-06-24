@@ -68,7 +68,6 @@ public function count(){
 }
 
 // read all product based on product ids included in the $ids variable
-// reference http://stackoverflow.com/a/10722827/827418
 public function readByIds($ids){
  
     $ids_arr = str_repeat('?,', count($ids) - 1) . '?';

@@ -3,12 +3,11 @@
 <html lang="zxx">
 
 <head>
-<title>TMM - Checkout</title>
+<title>TMC - Checkout</title>
 <?php
   include('./partials/head.php')
 ?>
 
-<!-- CSS here -->
 <?php 
   include('./partials/css.php')
 ?>
@@ -17,19 +16,16 @@
 <body>
 
 <?php 
-  // include('./partials/preload.php')
+  include('./partials/preload.php')
 ?>
 
 <header>
-<!-- Header Start -->
 <?php
   include('./partials/header.php')
 ?>
-<!-- Header End -->
 </header>
 
-<!-- slider Area Start-->
-<div class="slider-area ">
+<div class="slider-area" style="margin-bottom: 5rem;">
   <!-- Mobile Menu -->
   <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
       <div class="container">
@@ -43,66 +39,40 @@
       </div>
   </div>
 </div>
-<!-- slider Area End-->
 
-<!--================Checkout Area =================-->
 <section class="checkout_area section_padding">
   <div class="container">
-    <!-- <div class="returning_customer">
-      <div class="check_title">
-        <h2>
-          Returning Customer?
-          <a href="#">Click here to login</a>
-        </h2>
-      </div> -->
     <div class="billing_details">
       <div class="row">
         <div class="col-lg-8">
           <h3>Shipping Details</h3>
-          <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-            <div class="col-md-6 form-group p_star">
-              <input type="text" class="form-control" id="first" name="name" />
-              <span class="placeholder" data-placeholder="First name"></span>
+         <form class='row contact_form' method='post' action='#'>
+            <div class="col-md-6 form-group">
+              <input type="text" class="form-control" id="first" name="fname" placeholder="First name" required/>
             </div>
-            <div class="col-md-6 form-group p_star">
-              <input type="text" class="form-control" id="last" name="name" />
-              <span class="placeholder" data-placeholder="Last name"></span>
+            <div class="col-md-6 form-group">
+              <input type="text" class="form-control" id="last" name="lname" placeholder="Last name" required/>
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="text" class="form-control" id="number" name="pnumber" placeholder="Phone number" required/>
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
-            </div>
-            <div class="col-md-6 form-group p_star">
-              <input type="text" class="form-control" id="number" name="number" />
-              <span class="placeholder" data-placeholder="Phone number"></span>
-            </div>
-            <div class="col-md-6 form-group p_star">
-              <input type="text" class="form-control" id="email" name="compemailany" />
-              <span class="placeholder" data-placeholder="Email Address"></span>
-            </div>
-            <div class="col-md-12 form-group p_star">
-              <select class="country_select">
-                <option value="1">Romania</option>
-                <option value="2">Germany</option>
-                <option value="3">Austria</option>
-                <option value="4">Sweden</option>
+              <select class="country_select" name="country" required>
+                <option value="Romania">Romania</option>
+                <option value="Germany">Germany</option>
+                <option value="Austria">Austria</option>
+                <option value="Sweden">Sweden</option>
               </select>
             </div>
-            <div class="col-md-12 form-group p_star">
-              <input type="text" class="form-control" id="add1" name="add1" />
-              <span class="placeholder" data-placeholder="Address line 01"></span>
-            </div>
-            <div class="col-md-12 form-group p_star">
-              <input type="text" class="form-control" id="add2" name="add2" />
-              <span class="placeholder" data-placeholder="Address line 02"></span>
-            </div>
-            <div class="col-md-12 form-group p_star">
-              <input type="text" class="form-control" id="city" name="city" />
-              <span class="placeholder" data-placeholder="Town/City"></span>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="add1" name="address" placeholder="Address line" required/>
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
+              <input type="text" class="form-control" id="city" name="city" placeholder="Town/City" required/>
             </div>
-          </form>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" required/>
+            </div>
         </div>
         <div class="col-lg-4">
           <div class="order_box">
@@ -125,14 +95,11 @@
                 // initialize objects
                 $product = new Product($db);
                 $product_image = new ProductImage($db);
-                
-                // set page title
-                // $page_title="Checkout";
-                
+                                
                 // include page header html
                 include 'layout_header.php';
                 
-                echo "<form method='post' action='#'>";
+                // echo "";
                 
                   if(count($_SESSION['cart'])>0){
                   
@@ -153,10 +120,6 @@
                       $quantity=$_SESSION['cart'][$id]['quantity'];
                       $sub_total=$price*$quantity;
               
-                      //echo "<div class='product-id' style='display:none;'>{$id}</div>";
-                      //echo "<div class='product-name'>{$name}</div>";
-              
-                      // =================
                       echo "<div class='cart-row'>";
                         echo "<div class='col-md-8'>";
                           
@@ -169,7 +132,6 @@
                           echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>";
                         echo "</div>";
                       echo "</div>";
-                      // =================
               
                       $item_count += $quantity;
                       $total+=$sub_total;
@@ -177,9 +139,7 @@
                       
 
                       $prods[] = array($id, $quantity, $price); 
-                      
-                     
-                      
+                                            
                       }
                       
                       $idx = 0;
@@ -192,12 +152,9 @@
 
                             $idx++;
                         }
-                   
                     
                       echo "<input type='hidden' name='total-price' value='$total'>";
-                    
 
-                    // echo "<div class='col-md-8'></div>";
                     echo "<div class='col-md-12 text-align-center'>";
                       echo "<div class='cart-row'>";
                       if($item_count>1){
@@ -206,7 +163,7 @@
                         echo "<h4 class='m-b-10px'>Total ({$item_count} item)</h4>";
                       }
                         echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
-                        echo "<button name='place-order' class='btn btn-lg btn-success m-b-10px'>";
+                        echo "<button name='place-order' class='btn btn-lg btn-outline-success m-b-10px'>";
                           echo "<span class='glyphicon glyphicon-shopping-cart'></span> Place Order";
                         echo "</button>";
                       echo "</div>";
@@ -231,20 +188,16 @@
     </div>
   </div>
 </section>
-<!--================End Checkout Area =================-->
 
 
-  <footer>
-    <!-- Footer Start-->
-    <?php
-      include('./partials/footer.php')
-    ?>
-    <!-- Footer End-->
+<footer>
+<?php
+  include('./partials/footer.php')
+?>
 </footer>
-	<!-- JS here -->
-	<?php
-    include('./partials/js.php')
-  ?>    
+<?php
+  include('./partials/js.php')
+?>    
 </body>
 
 </html>

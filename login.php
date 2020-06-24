@@ -3,33 +3,33 @@
 <html lang="zxx">
 
 <head>
-<title>TMM - Login</title>
+<title>TMC - Login</title>
 <?php
     include('./partials/head.php')
 ?>
-<!-- CSS here -->
+
 <?php 
     include('./partials/css.php')
 ?>  
 </head>
 
 <body>
-<!-- Preloader Start -->
+
 <?php 
     include('./partials/preload.php')
 ?>
-<!-- Preloader End -->
+
 
 <header>
-<!-- Header Start -->
+
 <?php
     include('./partials/header.php')
 ?>
-<!-- Header End -->
+
 </header>
 
-<!-- slider Area Start-->
-<div class="slider-area ">
+
+<div class="slider-area" style="margin-bottom: 5rem;">
     <!-- Mobile Menu -->
     <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
         <div class="container">
@@ -43,9 +43,9 @@
         </div>
     </div>
 </div>
-<!-- slider Area End-->
 
-<!--================login_part Area =================-->
+
+
 <section class="login_part section_padding ">
     <div class="container">
         <div class="row align-items-center">
@@ -66,7 +66,6 @@
                         
                         <form class="row contact_form" action="login.php" method="post" novalidate="novalidate">
                         
-                            <!-- display validation errors -->
                             <?php include('./partials/login/errors.php'); ?>
 
                             <div class="col-md-12 form-group p_star">
@@ -78,7 +77,7 @@
                                     placeholder="Password">
                             </div>
                             <div class="col-md-12 form-group">
-                                <button type="submit" value="login" name="login" class="btn_3">
+                                <button type="submit" value="login" id="login" name="login" class="btn_3">
                                     log in
                                 </button>
                             </div>
@@ -89,7 +88,7 @@
         </div>
     </div>
 </section>
-<!--================login_part end =================-->
+
 
 <footer>
 <?php
@@ -97,7 +96,7 @@
 ?>
 </footer>
 
-<!-- JS here -->
+
 <?php
     include('./partials/js.php')
 ?>
